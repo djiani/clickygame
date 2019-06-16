@@ -1,19 +1,26 @@
 import React from "react";
 import Header from "./Header";
 import DescriptionHeader from './DescriptionHeader';
+// import Game from './Game';
+
 import  './Wrapper.css';
 
-function Wrapper(props){
-    return (
-       <div className="main">
-            <Header/>
-            <DescriptionHeader />
-            
-            <div>Image rendering</div>
+class Wrapper extends React.Component{
+    state = {
+        imageGame:[]
 
-        </div>
-        
-    );
+    }
+
+    render(){
+        return (
+            <div className="main">
+                 <Header/>
+                 <DescriptionHeader />
+                 {/* <Game  /> */}
+            </div>
+             
+         );
+    }
 }
 
 export default Wrapper;

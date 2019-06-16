@@ -1,0 +1,17 @@
+.header{
+    font-size: 1.2em;
+    padding: 20px;
+    height: 100px;
+    color:red;
+    background-color:blue;
+    text-align: center;
+}
+.game_startBtn{
+    float: left;
+}
+.game_des{
+    text-align: center;
+}
+.game_score{
+    float:right;
+}

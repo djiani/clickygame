@@ -3,13 +3,13 @@ import Image from './Image';
 
 
 function Game(props){
-    const imageGame = props.map(function(img_url){
-        return <Image img_url={img_url} />
+    const CharactersList = props.CharactersData.map(function(img_url, index){
+        return <Image img_url={img_url} onClick={props.click} key={index}/>
     })
 
     return (
         <div className="container">
-            {imageGame}
+            {CharactersList}
         </div>
     );
 }

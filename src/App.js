@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./components/Header";
-import DescriptionHeader from './components/DescriptionHeader';
  import Game from './components/Game';
 import API from './components/utils/API';
+import Footer from './components/Footer';
 
 
 import  './App.css';
@@ -14,13 +14,14 @@ class App extends React.Component{
         topScore:0,
         CharactersClick: [],
         gameDesc:"",
-        error : false
+        error : false,
+        level: 1
 
 
     }
 
-    GetGiphy = () => {
-        API.search()
+    GetGiphy = (level) => {
+        API.search(level*2)
           .then(res => {
             //console.log(res);
             const Characters = res.data.data.map( data=>{
@@ -33,14 +34,15 @@ class App extends React.Component{
                 topScore:0,
                 CharactersClick: [],
                 gameDesc:"",
-                error : false
+                error : false,
+                level: level
                 });
           })
           .catch(err => console.log(err));
     };
 
     handleImageClick = (e)=>{
-        let {score, topScore, Characters, CharactersClick, gameDesc, error} = this.state;
+        let {score, topScore, Characters, CharactersClick, gameDesc, error, level} = this.state;
         const curElt = (e.target.src);
         if(!CharactersClick.includes(curElt)){
             CharactersClick.push(curElt);
@@ -50,14 +52,22 @@ class App extends React.Component{
            if(score > topScore){
                topScore = score;
            }
-            Characters = this.shuffeArray();
-        
-            this.setState({Characters, score, topScore, CharactersClick, gameDesc, error});
+           if(score === this.state.Characters.length){
+               //win game increase level!
+               alert('you complete level '+level+"! Go to the next level");
+               level++;
+               this.GetGiphy(level);
+           }else{
+                Characters = this.shuffeArray();
+                this.setState({Characters, score, topScore, CharactersClick, gameDesc, error});
+           }
+            
            
         }else{
             score = 0;
             gameDesc = "You guessed Incorrectly!";
             error = true;
+            CharactersClick = [];
             this.setState({Characters, score, topScore, CharactersClick, gameDesc, error});
         }
     }
@@ -75,11 +85,11 @@ class App extends React.Component{
     }
 
     componentDidMount(){
-        this.GetGiphy();
+        this.GetGiphy(this.state.level);
     }
 
     handleCliclyGame = ()=>{
-        this.GetGiphy();
+        this.GetGiphy(1);
     }
 
     render(){
@@ -90,10 +100,11 @@ class App extends React.Component{
                     topScore = {this.state.topScore}
                     desc={this.state.gameDesc} 
                     error={this.state.error}
+                    level={this.state.level}
                     onClick={this.handleCliclyGame}
                  />
-                 <DescriptionHeader  />
                  <Game  CharactersData={this.state.Characters} click={this.handleImageClick}/>
+                 <Footer/>
             </div>
              
          );

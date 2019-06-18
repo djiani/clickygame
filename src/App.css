@@ -1,5 +1,5 @@
 .main{
-  min-height: 100vw;
+  height: 100vh;
   background-image: url("https://media.giphy.com/media/BHNfhgU63qrks/giphy-downsized.gif");
   background-size: cover;
 }

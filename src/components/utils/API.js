@@ -3,11 +3,14 @@ import axios from "axios";
 // const APIKEY = "5f2qiYkKasRM65bApSg9R42vbXi57BSJ";
 
 // const url = "http://api.giphy.com/v1/gifs/search?api_key=5f2qiYkKasRM65bApSg9R42vbXi57BSJ&q=dog"
-const url2 = "http://api.giphy.com/v1/gifs/search?api_key=5f2qiYkKasRM65bApSg9R42vbXi57BSJ&q=dog&limit=12"
 
+
+const url = "http://api.giphy.com/v1/gifs/search?api_key=5f2qiYkKasRM65bApSg9R42vbXi57BSJ&q=";
+const characters = ["superhero", "dogs", "cats", "tom and jerry", "flogs", "clown"]
 export default {
-  search: function() {
-    return axios.get(url2);
+  search: function(level) {
+    let query = characters[Math.floor(Math.random()*characters.length)]
+    return axios.get(url+query+"&limit="+level);
   }
 };
 

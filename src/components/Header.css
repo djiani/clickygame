@@ -1,25 +1,37 @@
 .header{
+    position: fixed;
     font-size: 1.2em;
-    padding: 20px;
-    height: 100px;
-    color: while;
-    background-color:blue;
+    color: white;
+    background-color:rgba(92, 4, 151, 0.9);;
     text-align: center;
+    padding: 10px;
+    top:0;
+    width: 100%;
+    z-index: 9999;
+
 }
 .game_startBtn{
-    float: left;
+    text-align: left;
+    color:white;
 }
 .game_des{
     text-align: center;
+    font-size: 1rem;
 }
 .game_score{
-    float:right;
+    text-align:right;
+    color:white;
 }
 
 .error{
-    color: red;
+    font-weight: bolder;
+    font-size: 2rem;
+    color: rgb(245, 83, 83);
+    
 }
 
 .noerror{
-    color:green;
+    font-size: 2rem;
+    font-weight: bolder;
+    color:rgb(103, 246, 103);
 }

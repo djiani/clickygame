@@ -5,7 +5,7 @@ import axios from "axios";
 // const url = "http://api.giphy.com/v1/gifs/search?api_key=5f2qiYkKasRM65bApSg9R42vbXi57BSJ&q=dog"
 
 
-const url = "http://api.giphy.com/v1/gifs/search?api_key=5f2qiYkKasRM65bApSg9R42vbXi57BSJ&q=";
+const url = "https://api.giphy.com/v1/gifs/search?api_key=5f2qiYkKasRM65bApSg9R42vbXi57BSJ&q=";
 const characters = ["superhero", "dogs", "cats", "tom and jerry", "flogs", "clown"]
 export default {
   search: function(level) {
